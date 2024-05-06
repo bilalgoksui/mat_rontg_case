@@ -1,0 +1,90 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="all-title-box">
+    <div class="container text-center">
+        <h1>Add Course<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+    </div>
+</div>
+
+<div id="contact" class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                </div>
+                {%endfor%}
+                {% endif %}
+                <div class="contact_form" style="background-color: #17a2b8;">
+                    <div id="message"></div>
+                    <form  method="POST" role="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="id_teacher">Teacher:</label>
+                                {{ form.teacher }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_grade">Grade:</label>
+                                {{ form.grade }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="id_name">Name:</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_category">Category:</label>
+                                {{ form.category }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="id_students">Students:</label>
+                                {{ form.students }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_tags">Tags:</label>
+                                {{ form.tags }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="id_image">Image:</label>
+                                {{ form.image }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_pdf">PDF:</label>
+                                {{ form.pdf }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="id_description">Description:</label>
+                                {{ form.description }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="id_avaliable">Available:</label>
+                                {{ form.avaliable }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Add Course</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
